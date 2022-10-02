@@ -63,6 +63,7 @@ public class MemoController {
         //그전 레포지토리 get
         Memo tempMemo2=memoRepository.findById(id).orElseThrow( () -> new NullPointerException("id가 존재하지 않습니다."));
         String checkString2 = tempMemo2.getPassword();
+
         // 새로운 메모를 만들고
 
         if((requestDto.getPassword().equals(checkString2))) {
@@ -74,12 +75,11 @@ public class MemoController {
         }
         return false;
     }
-    
+
     //Update
     @PutMapping("/api/memos/{id}")
-    public Long updateMemo(@PathVariable Long id, @RequestBody MemoRequestDto requestDto) {
-
-            memoService.update(id, requestDto);
-        return id;
+    public Optional<Memo> updateMemo(@PathVariable Long id, @RequestBody MemoRequestDto requestDto) {
+        memoService.update(id, requestDto);
+        return memoRepository.findById(id);
     }
 }
