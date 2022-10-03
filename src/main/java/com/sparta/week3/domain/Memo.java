@@ -1,5 +1,6 @@
 package com.sparta.week3.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.sparta.week3.dto.MemoRequestDto;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -30,6 +31,7 @@ public class Memo extends Timestamped {
     private String contents;
 
     //패스워드 추가
+    @JsonIgnore
     @Column(nullable = true)
     private String password;
 

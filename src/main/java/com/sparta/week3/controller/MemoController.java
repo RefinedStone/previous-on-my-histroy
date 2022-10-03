@@ -30,7 +30,8 @@ public class MemoController {
     //Read
     @GetMapping("/api/memos")
     public List<Memo> getMemos() {
-        return memoRepository.findAllByOrderByModifiedAtDesc();
+        //return memoRepository.findAllByOrderByModifiedAtDesc();
+        return memoRepository.findAllByOrderByCreatedTimeDesc();
     }
     //Read 2 개별
     @GetMapping("/api/memos/{id}")
