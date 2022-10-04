@@ -52,12 +52,12 @@ public class Memo extends Timestamped {
         this.contents = requestDto.getContents();
         this.password = requestDto.getPassword();
     }
+
     public void update(MemoRequestDto requestDto) {
         this.username = requestDto.getUsername();
         this.contents = requestDto.getContents();
         this.password = requestDto.getPassword();
     }
-
 
     public void setId(Long id) {
         this.id = id;
