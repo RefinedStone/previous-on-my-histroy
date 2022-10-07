@@ -49,12 +49,12 @@ public class Member{
         this.email = email;
         this.pw = pw;
     }
+
     public Member(MemberInfoResponseDto responseDto) {
         this.name = responseDto.getName();
         this.email = responseDto.getEmail();
         this.pw = responseDto.getPw();
     }
-
     public void findMember(MemberInfoResponseDto responseDto) {
         this.name = responseDto.getName();
         this.email = responseDto.getEmail();

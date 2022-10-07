@@ -29,11 +29,9 @@ public class MemberController {
     return memberService.findMember(id);
     }
 
-    /**
-     * 회원의 전체 목록을 조회하는 API
-     */
     @GetMapping("/member")
-    public List<Member> getMemberList() {
+    public List<MemberInfoResponseDto> getMemberList() {
+
         return memberService.findAllMember();
     }
 

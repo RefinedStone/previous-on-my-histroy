@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -26,20 +27,11 @@ public class MemberService {
 //        member =memberRepository.findById(memberId).orElse(null);
         MemberInfoResponseDto memberDto = new MemberInfoResponseDto(memberRepository.findById(memberId).orElse(null));
         return memberDto;
-
-    }
-    public MemberInfoResponseDto findMembers(Long memberId) {
-        Member member = memberRepository.findById(memberId).orElseThrow(
-                () -> new IllegalArgumentException("id 없습니다.")
-        );
-        MemberInfoResponseDto responseDto = new MemberInfoResponseDto();
-//        member.update()
-
-        //  return member.orElse(null);
-
     }
     @Transactional
-    public List<Member> findAllMember() {
-        return memberRepository.findAll();
+    public List<MemberInfoResponseDto> findAllMember() {
+        List<MemberInfoResponseDto> DtoList = new ArrayList<MemberInfoResponseDto>();
+        DtoList = memberRepository.findAll();
+        return;
     }
 }
