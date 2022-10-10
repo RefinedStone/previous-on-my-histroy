@@ -14,12 +14,13 @@ public class WebSecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
                 .authorizeHttpRequests((authz) -> authz
-                        // 어떤 요청이든 '인증'
-                        .anyRequest().authenticated()
+
                         // image 폴더를 login 없이 허용
                         .antMatchers("/images/**").permitAll()
                         // css 폴더를 login 없이 허용
                         .antMatchers("/css/**").permitAll()
+                        // 어떤 요청이든 '인증'
+                        .anyRequest().authenticated()
 
                 )
 
