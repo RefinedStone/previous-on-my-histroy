@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class PostService {
@@ -26,12 +27,16 @@ public class PostService {
     }
 
     @Transactional
-    public Post updatePost(PostRequestDto requestDto, Long id) {
+    public Optional<Post> updatePost(PostRequestDto requestDto, Long id) {
         Post post = postRepository.findById(id).orElseThrow(
                 () -> new IllegalArgumentException("id 없습니다.")
         );
         post.update(requestDto);
-        return postRepository.findById(id).orElseGet(null);
+        return postRepository.findById(id);
     }
+
+    public void deletePost(PostRequestDto requestDto, Long id) {
+        postRepository.deleteById(id);
+     }
 }
 
