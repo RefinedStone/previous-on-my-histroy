@@ -6,6 +6,8 @@ import com.sparta.submitHomwork.service.PostService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RequiredArgsConstructor
 @RestController
 public class PostController {
@@ -14,8 +16,8 @@ public class PostController {
 //    public PostController(PostService postService) {this.postService = postService;}
 
     //모든 글 읽어 오기
-    @GetMapping("/memos")
-    public void getAllpost(){postService.getAllpost();}
+    @GetMapping("/memo")
+    public List<Post> getAllpost(){return postService.getAllpost();}
 
     //글 쓰기
     @PostMapping("/memo")
