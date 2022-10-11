@@ -26,8 +26,10 @@ public class PostController {
     }
 
     @PutMapping("/memo/{id}")
-    public Post updatePost(@RequestBody PostRequestDto requestDto, Long id){
-        return postService.updatePost(requestDto);
+    public Post updatePost(@RequestBody PostRequestDto requestDto, @PathVariable Long id){
+
+        return postService.updatePost(requestDto, id);
+
     }
 
 }
