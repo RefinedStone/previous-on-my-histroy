@@ -66,3 +66,6 @@ public class UserDetailsImpl implements UserDetails {
     }
 
 }
+
+
+       // https://kauth.kakao.com/oauth/authorize?client_id=070b993adfd04741da68c6f6906e513f&redirect_uri=http://localhost:8080/user/kakao/callback&response_type=code
