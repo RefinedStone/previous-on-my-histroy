@@ -20,19 +20,15 @@ public class UserController {
         this.userService = userService;
     }
 
-    // 회원 로그인 페이지
-    @GetMapping("/user/login")
-    public String login() {
-        return "login";
+    // 전체 글 목록 확인
+    @PostMapping("/post")
+    public void getAllPosts(){
+        userService.getAllPosts();
+
     }
 
-    // 회원 가입 페이지
-    @GetMapping("/user/signup")
-    public String signup() {
-        return "signup";
-    }
 
-    // 회원 가입 요청 처리
+    // 회원 가입 API
     @PostMapping("/user/signup")
     public String registerUser(@RequestBody SignupRequestDto requestDto) {
         userService.registerUser(requestDto);
