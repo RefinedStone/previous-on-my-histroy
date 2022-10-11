@@ -20,16 +20,9 @@ public class UserController {
         this.userService = userService;
     }
 
-    // 전체 글 목록 확인
-    @PostMapping("/post")
-    public void getAllPosts(){
-        userService.getAllPosts();
-
-    }
-
 
     // 회원 가입 API
-    @PostMapping("/user/signup")
+    @PostMapping("/dev/user/signup")
     public String registerUser(@RequestBody SignupRequestDto requestDto) {
         userService.registerUser(requestDto);
         return "sign-up success";

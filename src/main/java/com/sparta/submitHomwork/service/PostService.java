@@ -6,7 +6,9 @@ import com.sparta.submitHomwork.repository.PostRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class PostService {
@@ -23,5 +25,18 @@ public class PostService {
         return postRepository.save(Post);
 
     }
+
+    @Transactional
+    public Optional<Post> updatePost(PostRequestDto requestDto, Long id) {
+        Post post = postRepository.findById(id).orElseThrow(
+                () -> new IllegalArgumentException("id 없습니다.")
+        );
+        post.update(requestDto);
+        return postRepository.findById(id);
+    }
+
+    public void deletePost(PostRequestDto requestDto, Long id) {
+        postRepository.deleteById(id);
+     }
 }
 
