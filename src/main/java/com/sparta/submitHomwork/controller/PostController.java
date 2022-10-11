@@ -25,5 +25,9 @@ public class PostController {
         return postService.createPost(requestDto);
     }
 
+    @PutMapping("/memo/{id}")
+    public Post updatePost(@RequestBody PostRequestDto requestDto, Long id){
+        return postService.updatePost(requestDto);
+    }
 
 }

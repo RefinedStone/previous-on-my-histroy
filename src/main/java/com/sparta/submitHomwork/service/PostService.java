@@ -23,5 +23,9 @@ public class PostService {
         return postRepository.save(Post);
 
     }
+
+    public Post updatePost(PostRequestDto requestDto) {
+
+    }
 }
 
