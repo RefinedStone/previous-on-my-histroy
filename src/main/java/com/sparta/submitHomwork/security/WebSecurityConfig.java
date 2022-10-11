@@ -28,7 +28,9 @@ public class WebSecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         // 회원 관리 처리 API (POST /user/**) 에 대해 CSRF 무시
         http.csrf()
-                .ignoringAntMatchers("/user/**");
+                .ignoringAntMatchers("/user/**")
+                //임시로 포스팅 임시임시
+                .ignoringAntMatchers("/memo/**");
 
         http
                 .authorizeHttpRequests((authz) -> authz
@@ -37,7 +39,9 @@ public class WebSecurityConfig {
                         // css 폴더를 login 없이 허용
                         .antMatchers("/css/**").permitAll()
                         // 회원 관리 처리 API 전부를 login 없이 허용
-                        .antMatchers("/user/**").permitAll()
+                       .antMatchers("/user/**").permitAll()
+                        // 임시로 포스팅 API 전부를 허용 임시임시임시
+                       .antMatchers("/memo/**").permitAll()
                         // 어떤 요청이든 '인증'
                         .anyRequest().authenticated()
                 )

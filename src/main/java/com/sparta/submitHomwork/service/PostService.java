@@ -1,6 +1,7 @@
 package com.sparta.submitHomwork.service;
 
 import com.sparta.submitHomwork.domain.Post;
+import com.sparta.submitHomwork.dto.PostRequestDto;
 import com.sparta.submitHomwork.repository.PostRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,8 +15,13 @@ public class PostService {
     public PostService(PostRepository postRepository) {this.postRepository = postRepository;}
 
    // 모든 글 읽어오기
-    public List<Post> getAllpost() {return postRepository.findAllByOrderByCreatedTimeDesc();}
+    public List<Post> getAllpost() {return postRepository.findAllByOrderByCreatedAtDesc();}
 
+//글 쓰기
+    public Post createPost(PostRequestDto requestDto) {
+        Post Post = new Post(requestDto);
+        return postRepository.save(Post);
 
     }
+}
 

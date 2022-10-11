@@ -1,7 +1,7 @@
 package com.sparta.submitHomwork.service;
 
 import com.sparta.submitHomwork.domain.User;
-import com.sparta.submitHomwork.domain.UserRoleEnum;
+import com.sparta.submitHomwork.dto.PostRequestDto;
 import com.sparta.submitHomwork.dto.SignupRequestDto;
 import com.sparta.submitHomwork.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
