@@ -48,6 +48,8 @@ public class WebSecurityConfig {
                 // 로그인 기능 허용
                 .formLogin()
                 .loginPage("/user/login")
+                //로그인 하는 http 위치
+                .loginProcessingUrl("/dev/user/login")
                 .defaultSuccessUrl("/")
                 .failureUrl("/user/login?error")
                 .permitAll()

@@ -28,4 +28,12 @@ public class UserController {
         return "sign-up success";
     }
 
+/*
+    @PostMapping("/dev/user/login")
+    public String loginUser(@RequestBody SignupRequestDto requestDto) {
+        userService.registerUser(requestDto);
+        return "sign-up success";
+    }
+*/
+
 }
