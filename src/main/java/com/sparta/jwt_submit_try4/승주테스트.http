@@ -1,0 +1,31 @@
+###회원가입
+POST http://localhost:8080/auth/signup
+Content-Type: application/json
+
+{
+  "email": "SJ@gmail.net",
+  "password": "1234"
+}
+
+###로그인
+POST http://localhost:8080/auth/login
+Content-Type: application/json
+
+{
+  "email": "SJ@gmail.net",
+  "password": "1234"
+}
+###일반API요청
+GET http://localhost:8080/member/me
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIyIiwiYXV0aCI6IlJPTEVfVVNFUiIsImV4cCI6MTY2NTYxNDEyNn0.AbiE7eFd5l7pPvZycIdqPUBnsimMkGlsXlLoMWIq3DwxVfdGxb8bOKIDy0j-2DbUC1lLAFBJF_nsihxJXD7-Uw
+
+###토큰 재발급
+POST http://localhost:8080/auth/reissue
+Content-Type: application/json
+
+{
+  "accessToken": " eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIyIiwiYXV0aCI6IlJPTEVfVVNFUiIsImV4cCI6MTY2NTYxNDEyNn0.AbiE7eFd5l7pPvZycIdqPUBnsimMkGlsXlLoMWIq3DwxVfdGxb8bOKIDy0j-2DbUC1lLAFBJF_nsihxJXD7-Uw",
+  "refreshToken": "eyJhbGciOiJIUzUxMiJ9.eyJleHAiOjE2NjYyMTcxMjZ9.5RyEhptEeD-0kJQ7SEDISCgnEPZVJlivVouqM4DQ5YiUXFzDvHu4L8dYSX7UU5C5igwhRasa27ExyoeO-W_pDQ"
+}
+###멤버 미
+GET http://localhost:8080/
