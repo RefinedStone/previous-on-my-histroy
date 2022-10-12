@@ -29,7 +29,7 @@ public class AuthService {
 
     @Transactional
     public MemberResponseDto signup(MemberRequestDto memberRequestDto) {
-        if (memberRepository.existsByEmail(memberRequestDto.getEmail())) {
+        if (memberRepository.existsBynickname(memberRequestDto.getNickname())) {
             throw new RuntimeException("이미 가입되어 있는 유저입니다");
         }
 
