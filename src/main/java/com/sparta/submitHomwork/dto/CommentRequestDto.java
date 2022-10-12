@@ -3,12 +3,10 @@ package com.sparta.submitHomwork.dto;
 import lombok.Getter;
 import lombok.Setter;
 
-@Setter
 @Getter
-public class PostRequestDto {
+@Setter
+public class CommentRequestDto {
     private String username;
-    private String contents;
-    private String title;
-
+    private String comments;
 
 }
