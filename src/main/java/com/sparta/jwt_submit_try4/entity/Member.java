@@ -1,5 +1,6 @@
 package com.sparta.jwt_submit_try4.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.*;
@@ -17,9 +18,11 @@ public class Member extends Timestamped{
 
     private String nickname;
 
+    @JsonIgnore
     private String password;
 
     @Enumerated(EnumType.STRING)
+    @JsonIgnore
     private Authority authority;
 
     @Builder

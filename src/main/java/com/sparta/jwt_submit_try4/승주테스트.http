@@ -3,8 +3,8 @@ POST http://localhost:8080/auth/signup
 Content-Type: application/json
 
 {
-  "nickname": "123123",
-  "password": "1234"
+  "nickname": "sj1234",
+  "password": "1234asdfg1@"
 }
 
 ###로그인
@@ -12,13 +12,23 @@ POST http://localhost:8080/auth/login
 Content-Type: application/json
 
 {
-  "nickname": "SJ",
-  "password": "1234"
+  "nickname": "sj1234",
+  "password": "1234asdfg1@"
+}
+
+###글 쓰기
+POST http://localhost:8080/dev/post
+Authorization: Bearer
+Content-Type: application/json
+
+{
+  "title": "제목",
+  "contents": "컨텐츠"
 }
 
 ###일반API요청
 GET http://localhost:8080/member/me
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIyIiwiYXV0aCI6IlJPTEVfVVNFUiIsImV4cCI6MTY2NTYxNDEyNn0.AbiE7eFd5l7pPvZycIdqPUBnsimMkGlsXlLoMWIq3DwxVfdGxb8bOKIDy0j-2DbUC1lLAFBJF_nsihxJXD7-Uw
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIyIiwiYXV0aCI6IlJPTEVfVVNFUiIsImV4cCI6MTY2NTY1NzAwNX0.-Q008lpiYY9dTi9aRmBleHrt52zgA3iWOxD3Y2hLT4UJLE1WoXGMZn0HfVuvq5RPJMbyeQmyVFnb80RlOZMSzQ
 
 ###토큰 재발급
 POST http://localhost:8080/auth/reissue

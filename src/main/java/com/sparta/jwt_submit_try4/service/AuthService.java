@@ -1,10 +1,7 @@
 package com.sparta.jwt_submit_try4.service;
 
 
-import com.sparta.jwt_submit_try4.controller.dto.MemberRequestDto;
-import com.sparta.jwt_submit_try4.controller.dto.MemberResponseDto;
-import com.sparta.jwt_submit_try4.controller.dto.TokenDto;
-import com.sparta.jwt_submit_try4.controller.dto.TokenRequestDto;
+import com.sparta.jwt_submit_try4.controller.dto.*;
 import com.sparta.jwt_submit_try4.entity.Member;
 import com.sparta.jwt_submit_try4.entity.RefreshToken;
 import com.sparta.jwt_submit_try4.jwt.TokenProvider;
@@ -29,14 +26,24 @@ public class AuthService {
     private final TokenProvider tokenProvider;
     private final RefreshTokenRepository refreshTokenRepository;
 
-    @Transactional
-    public MemberResponseDto signup(MemberRequestDto memberRequestDto) {
+/*    @Transactional
+    public MemberResponseDtoTest signup(MemberRequestDto memberRequestDto) {
         if (memberRepository.existsBynickname(memberRequestDto.getNickname())) {
             throw new RuntimeException("이미 가입되어 있는 유저입니다");
         }
 
         Member member = memberRequestDto.toMember(passwordEncoder);
-        return MemberResponseDto.of(memberRepository.save(member));
+        return MemberResponseDtoTest.of(memberRepository.save(member));
+    }*/
+    @Transactional
+    public MemberResponseDtoTest<?> signup(MemberRequestDto memberRequestDto) {
+        if (memberRepository.existsBynickname(memberRequestDto.getNickname())) {
+            throw new RuntimeException("이미 가입되어 있는 유저입니다");
+        }
+
+        Member member = memberRequestDto.toMember(passwordEncoder);
+        memberRepository.save(member);
+        return MemberResponseDtoTest.success(member);
     }
 
   /*  @Transactional

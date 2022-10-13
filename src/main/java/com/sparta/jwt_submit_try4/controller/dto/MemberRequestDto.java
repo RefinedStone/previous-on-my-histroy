@@ -34,4 +34,5 @@ public class MemberRequestDto {
     public UsernamePasswordAuthenticationToken toAuthentication() {
         return new UsernamePasswordAuthenticationToken(nickname, password);
     }
+
 }
