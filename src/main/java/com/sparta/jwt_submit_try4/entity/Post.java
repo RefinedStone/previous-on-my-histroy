@@ -24,9 +24,15 @@ public class Post extends Timestamped{
     @Column(nullable = true)
     private String contents;
 
+    @Column(nullable = true)
+    private String nickname;
+/*
     @ManyToOne
-    @JoinColumn(name="member_id")
+    @JoinColumn(name="member_Id")
     private Member member;
+*/
+
+
 
 
     public Post(String contents, String title) {
@@ -37,11 +43,17 @@ public class Post extends Timestamped{
         this.contents = requestDto.getContents();
         this.title = requestDto.getTitle();
     }
-    public Post(PostRequestDto requestDto,Member member) {
+/*    public Post(PostRequestDto requestDto,Member member) {
         this.contents = requestDto.getContents();
         this.title = requestDto.getTitle();
         this.member = member;
+    }*/
+        public Post(PostRequestDto requestDto,String nickname) {
+        this.contents = requestDto.getContents();
+        this.title = requestDto.getTitle();
+        this.nickname =nickname;
     }
+
 
     public void update(PostRequestDto requestDto) {
         this.contents = requestDto.getContents();

@@ -15,6 +15,7 @@ import javax.transaction.Transactional;
 public class PostResponseDto<T> {
     private boolean success;
     private T data;
+    //private String nickname;
     private Error error;
 
     public static <T> PostResponseDto<T> success(T data) {

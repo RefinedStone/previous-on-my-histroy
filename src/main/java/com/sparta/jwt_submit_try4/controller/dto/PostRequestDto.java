@@ -16,7 +16,7 @@ public class PostRequestDto {
     private String contents;
     private String title;
     private String nickname;
-   // private MemberRepository memberRepository;
+    //private final MemberRepository memberRepository2;
 
 
 }

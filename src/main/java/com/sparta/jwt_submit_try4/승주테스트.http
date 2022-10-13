@@ -18,7 +18,7 @@ Content-Type: application/json
 
 ###글 쓰기
 POST http://localhost:8080/dev/post
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIyIiwiYXV0aCI6IlJPTEVfVVNFUiIsImV4cCI6MTY2NTY2NDM3NH0.H3MALhaRYhrROluB3kAEFCOQqJ-lHKESBtZLwSo2jqfE7BTywmu_9-lEiGbemZQC-UF8rqGBuUUDZ99Gp017Zw
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIyIiwiYXV0aCI6IlJPTEVfVVNFUiIsImV4cCI6MTY2NTY3MTUxNX0.d3mXSAPCi4ZVwEaxSzpM-qFcd1mKKbOcxmE_hPVBIDMGFAYvaMiiWX08iW9LUyMJ8rIWH45l_nY4iu97U4aZFg
 Content-Type: application/json
 
 {
@@ -28,7 +28,7 @@ Content-Type: application/json
 
 ###일반API요청
 GET http://localhost:8080/member/me
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIyIiwiYXV0aCI6IlJPTEVfVVNFUiIsImV4cCI6MTY2NTY1NzAwNX0.-Q008lpiYY9dTi9aRmBleHrt52zgA3iWOxD3Y2hLT4UJLE1WoXGMZn0HfVuvq5RPJMbyeQmyVFnb80RlOZMSzQ
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIyIiwiYXV0aCI6IlJPTEVfVVNFUiIsImV4cCI6MTY2NTY2NjkyMn0.ldhqr7AAedIvhqFpNsJlr0lgCV48npbPC0FMTpjyTQO5ikKg98Ww5H47e85U_EWdpQc0G3cKVWp435ngjcPZQg
 
 ###토큰 재발급
 POST http://localhost:8080/auth/reissue

@@ -9,6 +9,9 @@ import com.sparta.jwt_submit_try4.entity.Post;
 import com.sparta.jwt_submit_try4.repository.MemberRepository;
 import com.sparta.jwt_submit_try4.repository.PostRepository;
 import com.sparta.jwt_submit_try4.util.SecurityUtil;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,21 +19,19 @@ import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
 
+
 @Service
 public class PostService {
     private final PostRepository postRepository;
-    private MemberRepository memberRepository;
+    private final MemberService memberService;
 
-    @Transactional
-    public Member getMyInfo() {
-        Member tempMember = memberRepository.findById(SecurityUtil.getCurrentMemberId()).orElseThrow(() -> new RuntimeException("로그인 유저 정보가 없습니다."));
-        // String tempMemberNickname= tempMember.getNickname();
-        return tempMember;
-    }
+
     @Autowired
-    public PostService(PostRepository postRepository) {
+    public PostService(PostRepository postRepository, MemberService memberService) {
         this.postRepository = postRepository;
+        this.memberService = memberService;
     }
+
 
     // 모든 글 읽어오기
     public List<Post> getAllpost() {
@@ -39,9 +40,10 @@ public class PostService {
 
     //글 쓰기
     public PostResponseDto<?> createPost(PostRequestDto requestDto) {
-        //Member myInfo = getMyInfo();
-        Post post = new Post(requestDto);
-        //Post post = new Post(requestDto,myInfo);
+        //Member member = memberService.getInfo();
+//        Post post = new Post(requestDto,member);
+        String s = memberService.getInfo().getNickname();
+        Post post = new Post(requestDto,s);
         postRepository.save(post);
         return PostResponseDto.success(post);
     }
