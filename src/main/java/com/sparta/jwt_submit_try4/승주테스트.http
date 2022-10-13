@@ -3,7 +3,7 @@ POST http://localhost:8080/auth/signup
 Content-Type: application/json
 
 {
-  "nickname": "SJ@gmail.net",
+  "nickname": "SJ",
   "password": "1234"
 }
 
@@ -12,9 +12,10 @@ POST http://localhost:8080/auth/login
 Content-Type: application/json
 
 {
-  "nickname": "SJ@gmail.net",
+  "nickname": "SJ",
   "password": "1234"
 }
+
 ###일반API요청
 GET http://localhost:8080/member/me
 Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIyIiwiYXV0aCI6IlJPTEVfVVNFUiIsImV4cCI6MTY2NTYxNDEyNn0.AbiE7eFd5l7pPvZycIdqPUBnsimMkGlsXlLoMWIq3DwxVfdGxb8bOKIDy0j-2DbUC1lLAFBJF_nsihxJXD7-Uw
