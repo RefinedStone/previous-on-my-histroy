@@ -18,7 +18,7 @@ Content-Type: application/json
 
 ###글 쓰기
 POST http://localhost:8080/dev/post
-Authorization: Bearer
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIyIiwiYXV0aCI6IlJPTEVfVVNFUiIsImV4cCI6MTY2NTY2NDM3NH0.H3MALhaRYhrROluB3kAEFCOQqJ-lHKESBtZLwSo2jqfE7BTywmu_9-lEiGbemZQC-UF8rqGBuUUDZ99Gp017Zw
 Content-Type: application/json
 
 {

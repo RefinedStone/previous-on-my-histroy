@@ -1,25 +1,24 @@
 package com.sparta.jwt_submit_try4.controller.dto;
 
 import com.sparta.jwt_submit_try4.entity.Member;
-import com.sparta.jwt_submit_try4.entity.Timestamped;
+import com.sparta.jwt_submit_try4.repository.MemberRepository;
+import com.sparta.jwt_submit_try4.util.SecurityUtil;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.annotation.LastModifiedDate;
 
-import java.time.LocalDateTime;
+import javax.transaction.Transactional;
 
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
-public class MemberResponseDtoTest<T> {
+public class PostResponseDto<T> {
     private boolean success;
     private T data;
     private Error error;
-    public static <T>MemberResponseDtoTest<T> success(T data) {
 
-        return new MemberResponseDtoTest<>(true,data,null);
+    public static <T> PostResponseDto<T> success(T data) {
+        return new PostResponseDto<>(true,data,null);
     }
     @Getter
     @AllArgsConstructor

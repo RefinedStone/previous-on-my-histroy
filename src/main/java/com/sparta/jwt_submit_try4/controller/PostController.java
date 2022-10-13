@@ -1,10 +1,15 @@
 package com.sparta.jwt_submit_try4.controller;
 
 
-import com.sparta.jwt_submit_try4.controller.dto.PostRequestDto;
+import com.sparta.jwt_submit_try4.controller.dto.*;
+import com.sparta.jwt_submit_try4.entity.Member;
 import com.sparta.jwt_submit_try4.entity.Post;
+import com.sparta.jwt_submit_try4.repository.MemberRepository;
 import com.sparta.jwt_submit_try4.service.PostService;
+import com.sparta.jwt_submit_try4.util.SecurityUtil;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -14,17 +19,14 @@ import java.util.Optional;
 @RestController
 public class PostController {
     private final PostService postService;
-//    @Autowired
-//    public PostController(PostService postService) {this.postService = postService;}
 
     //모든 글 읽어 오기
     @GetMapping("/auth/post")
     public List<Post> getAllpost(){return postService.getAllpost();}
 
-    //글 쓰기
     @PostMapping("/post")
-    public Post createPost(@RequestBody PostRequestDto requestDto) {
-        return postService.createPost(requestDto);
+    public ResponseEntity<PostResponseDto<?>> signup(@RequestBody PostRequestDto postRequestDto) {
+        return ResponseEntity.ok(postService.createPost(postRequestDto));
     }
 
     //글 수정

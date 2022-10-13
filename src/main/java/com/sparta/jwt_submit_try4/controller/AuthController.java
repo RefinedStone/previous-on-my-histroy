@@ -40,36 +40,6 @@ public class AuthController {
         return ResponseEntity.ok(authService.signup(memberRequestDto));
     }
 
-    /* @PostMapping("/login")
-     public ResponseEntity<TokenDto> login(@RequestBody MemberRequestDto memberRequestDto) {
-         return ResponseEntity.ok(authService.login(memberRequestDto));
-     }*/
-  /*  @PostMapping("/login")
-    public ResponseEntity<TokenDto> login(@RequestBody MemberRequestDto memberRequestDto) {
-        HttpHeaders headers = new HttpHeaders();
-        headers.add(HttpHeaders.AUTHORIZATION,"testValue");
-
-        return ResponseEntity.ok().headers(headers).body(authService.login(memberRequestDto));
-
-    }*/
-/*    @PostMapping("/login")
-    public ResponseEntity login(@RequestBody MemberRequestDto memberRequestDto) {
-        UsernamePasswordAuthenticationToken authenticationToken = memberRequestDto.toAuthentication();
-        Authentication authentication = authenticationManagerBuilder.getObject().authenticate(authenticationToken);
-
-        TokenDto tokenDto = tokenProvider.generateTokenDto(authentication);
-        RefreshToken refreshToken = RefreshToken.builder()
-                .key(authentication.getName())
-                .value(tokenDto.getRefreshToken())
-                .build();
-
-        refreshTokenRepository.save(refreshToken);
-        HttpHeaders headers = new HttpHeaders();
-
-        headers.add(HttpHeaders.AUTHORIZATION, tokenDto.getAccessToken());
-        headers.add("refreshToken", tokenDto.getRefreshToken());
-        return ResponseEntity.ok().headers(headers).body(memberRequestDto+"/n헤더 value를 확인해주세요");
-    }*/
     @PostMapping("/login")
     public ResponseEntity<MemberResponseDtoTest<Optional<Member>>> login(@RequestBody MemberRequestDto memberRequestDto) {
         UsernamePasswordAuthenticationToken authenticationToken = memberRequestDto.toAuthentication();
