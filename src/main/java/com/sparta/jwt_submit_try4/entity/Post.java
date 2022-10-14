@@ -7,6 +7,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @NoArgsConstructor
 @Setter
@@ -26,13 +28,13 @@ public class Post extends Timestamped{
 
     @Column(nullable = true)
     private String nickname;
-/*
+
     @ManyToOne
     @JoinColumn(name="member_Id")
     private Member member;
-*/
 
-
+    @OneToMany(mappedBy = "post")
+    List<Comment> comments = new ArrayList<>();
 
 
     public Post(String contents, String title) {
@@ -43,16 +45,12 @@ public class Post extends Timestamped{
         this.contents = requestDto.getContents();
         this.title = requestDto.getTitle();
     }
-/*    public Post(PostRequestDto requestDto,Member member) {
-        this.contents = requestDto.getContents();
-        this.title = requestDto.getTitle();
-        this.member = member;
-    }*/
-        public Post(PostRequestDto requestDto,String nickname) {
-        this.contents = requestDto.getContents();
-        this.title = requestDto.getTitle();
-        this.nickname =nickname;
-    }
+
+  public Post(PostRequestDto requestDto,Member member) {
+      this.contents = requestDto.getContents();
+      this.title = requestDto.getTitle();
+      this.nickname = member.getNickname();
+  }
 
 
     public void update(PostRequestDto requestDto) {

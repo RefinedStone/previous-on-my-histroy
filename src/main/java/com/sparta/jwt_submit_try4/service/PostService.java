@@ -20,6 +20,7 @@ import java.util.List;
 import java.util.Optional;
 
 
+
 @Service
 public class PostService {
     private final PostRepository postRepository;
@@ -39,11 +40,12 @@ public class PostService {
     }
 
     //글 쓰기
+    @Transactional
     public PostResponseDto<?> createPost(PostRequestDto requestDto) {
-        //Member member = memberService.getInfo();
-//        Post post = new Post(requestDto,member);
-        String s = memberService.getInfo().getNickname();
-        Post post = new Post(requestDto,s);
+        Member member = memberService.getInfo();
+        Post post = new Post(requestDto,member);
+//        String s = memberService.getInfo().getNickname();
+//        Post post = new Post(requestDto,s);
         postRepository.save(post);
         return PostResponseDto.success(post);
     }
@@ -57,6 +59,7 @@ public class PostService {
         return postRepository.findById(id);
 
     }
+
 
     public void deletePost(PostRequestDto requestDto, Long id) {
         postRepository.deleteById(id);
