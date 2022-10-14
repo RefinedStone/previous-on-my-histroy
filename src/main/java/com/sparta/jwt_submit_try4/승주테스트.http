@@ -1,0 +1,42 @@
+###회원가입
+POST http://localhost:8080/auth/signup
+Content-Type: application/json
+
+{
+  "nickname": "sj1234",
+  "password": "1234asdfg1@"
+}
+
+###로그인
+POST http://localhost:8080/auth/login
+Content-Type: application/json
+
+{
+  "nickname": "sj1234",
+  "password": "1234asdfg1@"
+}
+
+###글 쓰기
+POST http://localhost:8080/dev/post
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIyIiwiYXV0aCI6IlJPTEVfVVNFUiIsImV4cCI6MTY2NTcyNzYxN30.ePreMlJXZKdmiDKwUWP_J6huE_3NK9R51mZ-YevRPr5-BsrKhrrK_WnrMLKKZ91BCMqwpCe7sosvnFNuSyIutA
+Content-Type: application/json
+
+{
+  "title": "제목",
+  "contents": "컨텐츠"
+}
+
+###일반API요청
+GET http://localhost:8080/member/me
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIyIiwiYXV0aCI6IlJPTEVfVVNFUiIsImV4cCI6MTY2NTY2NjkyMn0.ldhqr7AAedIvhqFpNsJlr0lgCV48npbPC0FMTpjyTQO5ikKg98Ww5H47e85U_EWdpQc0G3cKVWp435ngjcPZQg
+
+###토큰 재발급
+POST http://localhost:8080/auth/reissue
+Content-Type: application/json
+
+{
+  "accessToken": " eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIyIiwiYXV0aCI6IlJPTEVfVVNFUiIsImV4cCI6MTY2NTYxNDEyNn0.AbiE7eFd5l7pPvZycIdqPUBnsimMkGlsXlLoMWIq3DwxVfdGxb8bOKIDy0j-2DbUC1lLAFBJF_nsihxJXD7-Uw",
+  "refreshToken": "eyJhbGciOiJIUzUxMiJ9.eyJleHAiOjE2NjYyMTcxMjZ9.5RyEhptEeD-0kJQ7SEDISCgnEPZVJlivVouqM4DQ5YiUXFzDvHu4L8dYSX7UU5C5igwhRasa27ExyoeO-W_pDQ"
+}
+###멤버 미
+GET http://localhost:8080/
