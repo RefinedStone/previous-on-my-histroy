@@ -18,16 +18,22 @@ public class PostController {
 
     //모든 글 읽어 오기
     @GetMapping("/auth/post")
-    public List<Post> getAllpost(){return postService.getAllpost();}
-
+    public ResponseEntity<PostResponseDto<?>> getAllpost(){
+        return ResponseEntity.ok(postService.getAllpost());
+    }
+    //글 쓰기
     @PostMapping("/post")
     public ResponseEntity<PostResponseDto<?>> signup(@RequestBody PostRequestDto postRequestDto) {
         return ResponseEntity.ok(postService.createPost(postRequestDto));
     }
     //글 수정
+//    @PutMapping("/post/{id}")
+//    public Optional<Post> updatePost(@RequestBody PostRequestDto requestDto, @PathVariable Long id){
+//        return postService.updatePost(requestDto, id);}
     @PutMapping("/post/{id}")
-    public Optional<Post> updatePost(@RequestBody PostRequestDto requestDto, @PathVariable Long id){
-        return postService.updatePost(requestDto, id);}
+    public ResponseEntity<PostResponseDto<?>> updatePost(@RequestBody PostRequestDto requestDto, @PathVariable Long id){
+        return ResponseEntity.ok(postService.updatePost(requestDto, id));
+    }
 
     //글 삭제
     @DeleteMapping("/post/{id}")

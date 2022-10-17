@@ -18,12 +18,26 @@ Content-Type: application/json
 
 ###글 쓰기
 POST http://localhost:8080/dev/post
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIyIiwiYXV0aCI6IlJPTEVfVVNFUiIsImV4cCI6MTY2NjAwODM1Nn0.DqYK_HsVX8i88pSA-SWS4V61DBS6smCOS2euuu7xevNQ7tyt3Dr4Nw41oJ4kQoBpqGWPwhPO54xf3LPlC-LQRQ
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIyIiwiYXV0aCI6IlJPTEVfVVNFUiIsImV4cCI6MTY2NjAxMTc3OX0._49cAvgRPT11EvYka7Ivi-27Lsab0E_f6wasmif1TbJIgCeK6A5oPjFih98NOf_bbpvTXO9CS7tFlHyChgXRnw
 Content-Type: application/json
 
 {
   "title": "제목",
   "contents": "컨텐츠"
+}
+###전체 글 불러오기
+###글 쓰기
+GET http://localhost:8080/dev/auth/post
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIyIiwiYXV0aCI6IlJPTEVfVVNFUiIsImV4cCI6MTY2NjAxMTc3OX0._49cAvgRPT11EvYka7Ivi-27Lsab0E_f6wasmif1TbJIgCeK6A5oPjFih98NOf_bbpvTXO9CS7tFlHyChgXRnw
+
+###글 수정
+PUT http://localhost:8080/dev/post/1
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIyIiwiYXV0aCI6IlJPTEVfVVNFUiIsImV4cCI6MTY2NjAxMTc3OX0._49cAvgRPT11EvYka7Ivi-27Lsab0E_f6wasmif1TbJIgCeK6A5oPjFih98NOf_bbpvTXO9CS7tFlHyChgXRnw
+Content-Type: application/json
+
+{
+  "title": "제목22",
+  "contents": "컨텐츠22"
 }
 
 ###댓글쓰기

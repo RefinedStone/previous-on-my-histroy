@@ -28,8 +28,9 @@ public class PostService {
 
 
     // 모든 글 읽어오기
-    public List<Post> getAllpost() {
-        return postRepository.findAllByOrderByCreatedAtDesc();
+    public PostResponseDto<?> getAllpost() {
+        List<Post> postList = postRepository.findAllByOrderByCreatedAtDesc();
+        return PostResponseDto.success(postList);
     }
 
     //글 쓰기
@@ -41,13 +42,12 @@ public class PostService {
     }
 
     @Transactional
-    public Optional<Post> updatePost(PostRequestDto requestDto, Long id) {
+    public PostResponseDto<?> updatePost(PostRequestDto requestDto, Long id) {
         Post post = postRepository.findById(id).orElseThrow(
                 () -> new IllegalArgumentException("id 없습니다.")
         );
         post.update(requestDto);
-        return postRepository.findById(id);
-
+        return PostResponseDto.success(postRepository.findById(id));
     }
 
     public void deletePost(PostRequestDto requestDto, Long id) {
