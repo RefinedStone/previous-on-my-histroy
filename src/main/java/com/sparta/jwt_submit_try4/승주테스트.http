@@ -18,16 +18,17 @@ Content-Type: application/json
 
 ###글 쓰기
 POST http://localhost:8080/dev/post
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIzIiwiYXV0aCI6IlJPTEVfVVNFUiIsImV4cCI6MTY2NjAxNzE3OX0.FpBZpaU4owhZCXwvhiyFT7BGytltvtg419OAaa8F8MJihlqM2cACnPG3O7pwSxV2eulggYahjt4Pr4pP3s-xEA
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIyIiwiYXV0aCI6IlJPTEVfVVNFUiIsImV4cCI6MTY2NjAxOTQwNH0.sznIhCyIBIg7zBTDR4f29-79OkQSKzawXPUdpzF4tw6Y3aEnx6rXt3LabWBKwLtgu3AF62YHpM8_Emzaovtpkw
 Content-Type: application/json
 
 {
   "title": "제목",
   "contents": "컨텐츠"
 }
+
 ###글 수정
 PUT http://localhost:8080/dev/post/1
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIyIiwiYXV0aCI6IlJPTEVfVVNFUiIsImV4cCI6MTY2NjAxNzE1OH0.V-gO99Bbp2695ML4bNyNgT4tjnrMxzJi9CJASNu4gdZIDeIMYk1P6IRHv0d-iyexwvAbGTKdbzvkvcJ3vZ2GwA
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIyIiwiYXV0aCI6IlJPTEVfVVNFUiIsImV4cCI6MTY2NjAxOTQwNH0.sznIhCyIBIg7zBTDR4f29-79OkQSKzawXPUdpzF4tw6Y3aEnx6rXt3LabWBKwLtgu3AF62YHpM8_Emzaovtpkw
 Content-Type: application/json
 
 {
@@ -42,22 +43,23 @@ Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIyIiwiYXV0aCI6IlJPTEVfVVNFU
 
 ###전체 글 불러오기
 GET http://localhost:8080/dev/auth/post
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIyIiwiYXV0aCI6IlJPTEVfVVNFUiIsImV4cCI6MTY2NjAxNTM4MH0.rOclpol2GOnta9c-WSLuFXkBHkaodoOajks9dwuDM1DdX_O06sxtdZj8o7OZAntSUKAqAFT5xIGTwvdaxt1c8w
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIyIiwiYXV0aCI6IlJPTEVfVVNFUiIsImV4cCI6MTY2NjAxOTQwNH0.sznIhCyIBIg7zBTDR4f29-79OkQSKzawXPUdpzF4tw6Y3aEnx6rXt3LabWBKwLtgu3AF62YHpM8_Emzaovtpkw
 
 
 
 ###댓글쓰기
 POST http://localhost:8080/dev/comment
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIyIiwiYXV0aCI6IlJPTEVfVVNFUiIsImV4cCI6MTY2NjAxNTM4MH0.rOclpol2GOnta9c-WSLuFXkBHkaodoOajks9dwuDM1DdX_O06sxtdZj8o7OZAntSUKAqAFT5xIGTwvdaxt1c8w
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIyIiwiYXV0aCI6IlJPTEVfVVNFUiIsImV4cCI6MTY2NjAxOTQwNH0.sznIhCyIBIg7zBTDR4f29-79OkQSKzawXPUdpzF4tw6Y3aEnx6rXt3LabWBKwLtgu3AF62YHpM8_Emzaovtpkw
 Content-Type: application/json
 
 {
   "postId": 1,
   "comments": "댓글댓글입니다"
 }
+
 ###댓글 수정
 PUT http://localhost:8080/dev/comment/1
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIyIiwiYXV0aCI6IlJPTEVfVVNFUiIsImV4cCI6MTY2NjAxMzYwMn0.zskkwx_KqCZftUbGrwHvnycQYwlpd16Yvy_WqeasNun2vD4YpxCA06Y3m1qqcCh0ZOZkKaDcH3BvEiSgPNF_Og
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIyIiwiYXV0aCI6IlJPTEVfVVNFUiIsImV4cCI6MTY2NjAxOTQwNH0.sznIhCyIBIg7zBTDR4f29-79OkQSKzawXPUdpzF4tw6Y3aEnx6rXt3LabWBKwLtgu3AF62YHpM8_Emzaovtpkw
 Content-Type: application/json
 
 {

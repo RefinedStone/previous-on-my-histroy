@@ -61,6 +61,15 @@ public class PostService {
 
     //글 삭제
     public PostResponseDto<String> deletePost(Long id) {
+        Member member = memberService.getInfo();
+        Post post = postRepository.findById(id).orElseThrow(
+                () -> new IllegalArgumentException("id 없습니다.")
+        );
+        //게시글 작성자
+        Member member2 = post.getMember();
+        if(!member.getId().equals(member2.getId())){
+            throw new IllegalArgumentException("id 불일치");
+        }
         postRepository.deleteById(id);
         return PostResponseDto.success("delete success");
     }

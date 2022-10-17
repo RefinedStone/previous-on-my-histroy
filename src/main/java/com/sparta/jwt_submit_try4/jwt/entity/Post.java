@@ -54,11 +54,8 @@ public class Post extends Timestamped{
         this.nickname = member.getNickname();
     }
 
-
     public void update(PostRequestDto requestDto) {
         this.contents = requestDto.getContents();
         this.title = requestDto.getTitle();
     }
-
-
 }
