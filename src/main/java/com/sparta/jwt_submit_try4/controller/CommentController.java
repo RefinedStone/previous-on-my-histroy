@@ -2,9 +2,7 @@ package com.sparta.jwt_submit_try4.controller;
 
 
 import com.sparta.jwt_submit_try4.controller.dto.CommentRequestDto;
-import com.sparta.jwt_submit_try4.controller.dto.CommentResponseDto;
-import com.sparta.jwt_submit_try4.controller.dto.PostRequestDto;
-import com.sparta.jwt_submit_try4.controller.dto.PostResponseDto;
+
 import com.sparta.jwt_submit_try4.jwt.entity.Comment;
 import com.sparta.jwt_submit_try4.repository.CommentRepository;
 import com.sparta.jwt_submit_try4.service.CommentService;
@@ -25,7 +23,7 @@ public class CommentController {
   //  댓글 쓰기
     @PostMapping("/dev/comment")
     public Comment createComment(@RequestBody CommentRequestDto requestDto) {
-        return commentService.createComment(requestDto);
+        return commentService.createCommentWithManyToOne(requestDto);
     }
 
   /*  @PostMapping("/dev/comment")

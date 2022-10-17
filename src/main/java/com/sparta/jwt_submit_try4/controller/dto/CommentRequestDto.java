@@ -9,6 +9,6 @@ public class CommentRequestDto {
 
     private Long testId;
     private String comments;
-//    private Long post_id;
+    private Long postId;
 
 }

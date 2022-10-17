@@ -32,7 +32,7 @@ Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIyIiwiYXV0aCI6IlJPTEVfVVNFU
 Content-Type: application/json
 
 {
-  "testId": "1",
+  "postId": 1,
   "comments": "댓글댓글입니다"
 }
 
