@@ -44,15 +44,24 @@ public class PostService {
     //글 수정
     @Transactional
     public PostResponseDto<?> updatePost(PostRequestDto requestDto, Long id) {
+      //수정 요청한사람
+        Member member = memberService.getInfo();
+        //수정한 글 찾아오기
         Post post = postRepository.findById(id).orElseThrow(
                 () -> new IllegalArgumentException("id 없습니다.")
         );
+        //게시글 작성자
+        Member member2 = post.getMember();
+        if(!member.getId().equals(member2.getId())){
+            throw new IllegalArgumentException("id 불일치");
+        }
         post.update(requestDto);
         return PostResponseDto.success(postRepository.findById(id));
     }
 
     //글 삭제
     public PostResponseDto<String> deletePost(Long id) {
+        postRepository.deleteById(id);
         return PostResponseDto.success("delete success");
     }
 

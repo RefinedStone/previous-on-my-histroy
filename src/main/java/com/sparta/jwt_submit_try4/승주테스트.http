@@ -3,7 +3,7 @@ POST http://localhost:8080/auth/signup
 Content-Type: application/json
 
 {
-  "nickname": "sj1234",
+  "nickname": "sj12345",
   "password": "1234asdfg1@"
 }
 
@@ -12,13 +12,13 @@ POST http://localhost:8080/auth/login
 Content-Type: application/json
 
 {
-  "nickname": "sj1234",
+  "nickname": "sj12345",
   "password": "1234asdfg1@"
 }
 
 ###글 쓰기
 POST http://localhost:8080/dev/post
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIyIiwiYXV0aCI6IlJPTEVfVVNFUiIsImV4cCI6MTY2NjAxMzYwMn0.zskkwx_KqCZftUbGrwHvnycQYwlpd16Yvy_WqeasNun2vD4YpxCA06Y3m1qqcCh0ZOZkKaDcH3BvEiSgPNF_Og
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIzIiwiYXV0aCI6IlJPTEVfVVNFUiIsImV4cCI6MTY2NjAxNzE3OX0.FpBZpaU4owhZCXwvhiyFT7BGytltvtg419OAaa8F8MJihlqM2cACnPG3O7pwSxV2eulggYahjt4Pr4pP3s-xEA
 Content-Type: application/json
 
 {
@@ -27,32 +27,52 @@ Content-Type: application/json
 }
 ###글 수정
 PUT http://localhost:8080/dev/post/1
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIyIiwiYXV0aCI6IlJPTEVfVVNFUiIsImV4cCI6MTY2NjAxMzYwMn0.zskkwx_KqCZftUbGrwHvnycQYwlpd16Yvy_WqeasNun2vD4YpxCA06Y3m1qqcCh0ZOZkKaDcH3BvEiSgPNF_Og
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIyIiwiYXV0aCI6IlJPTEVfVVNFUiIsImV4cCI6MTY2NjAxNzE1OH0.V-gO99Bbp2695ML4bNyNgT4tjnrMxzJi9CJASNu4gdZIDeIMYk1P6IRHv0d-iyexwvAbGTKdbzvkvcJ3vZ2GwA
 Content-Type: application/json
 
 {
   "title": "제목22",
   "contents": "컨텐츠22"
 }
+
 ### 글삭제
 DELETE http://localhost:8080/dev/post/1
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIyIiwiYXV0aCI6IlJPTEVfVVNFUiIsImV4cCI6MTY2NjAxMzYwMn0.zskkwx_KqCZftUbGrwHvnycQYwlpd16Yvy_WqeasNun2vD4YpxCA06Y3m1qqcCh0ZOZkKaDcH3BvEiSgPNF_Og
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIyIiwiYXV0aCI6IlJPTEVfVVNFUiIsImV4cCI6MTY2NjAxNTM4MH0.rOclpol2GOnta9c-WSLuFXkBHkaodoOajks9dwuDM1DdX_O06sxtdZj8o7OZAntSUKAqAFT5xIGTwvdaxt1c8w
 
 
 ###전체 글 불러오기
 GET http://localhost:8080/dev/auth/post
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIyIiwiYXV0aCI6IlJPTEVfVVNFUiIsImV4cCI6MTY2NjAxMzYwMn0.zskkwx_KqCZftUbGrwHvnycQYwlpd16Yvy_WqeasNun2vD4YpxCA06Y3m1qqcCh0ZOZkKaDcH3BvEiSgPNF_Og
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIyIiwiYXV0aCI6IlJPTEVfVVNFUiIsImV4cCI6MTY2NjAxNTM4MH0.rOclpol2GOnta9c-WSLuFXkBHkaodoOajks9dwuDM1DdX_O06sxtdZj8o7OZAntSUKAqAFT5xIGTwvdaxt1c8w
 
 
 
 ###댓글쓰기
 POST http://localhost:8080/dev/comment
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIyIiwiYXV0aCI6IlJPTEVfVVNFUiIsImV4cCI6MTY2NjAxMzYwMn0.zskkwx_KqCZftUbGrwHvnycQYwlpd16Yvy_WqeasNun2vD4YpxCA06Y3m1qqcCh0ZOZkKaDcH3BvEiSgPNF_Og
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIyIiwiYXV0aCI6IlJPTEVfVVNFUiIsImV4cCI6MTY2NjAxNTM4MH0.rOclpol2GOnta9c-WSLuFXkBHkaodoOajks9dwuDM1DdX_O06sxtdZj8o7OZAntSUKAqAFT5xIGTwvdaxt1c8w
 Content-Type: application/json
 
 {
   "postId": 1,
   "comments": "댓글댓글입니다"
+}
+###댓글 수정
+PUT http://localhost:8080/dev/comment/1
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIyIiwiYXV0aCI6IlJPTEVfVVNFUiIsImV4cCI6MTY2NjAxMzYwMn0.zskkwx_KqCZftUbGrwHvnycQYwlpd16Yvy_WqeasNun2vD4YpxCA06Y3m1qqcCh0ZOZkKaDcH3BvEiSgPNF_Og
+Content-Type: application/json
+
+{
+  "postId": 1,
+  "comments": "댓글22입니다"
+}
+
+###댓글 삭제
+DELETE http://localhost:8080/dev/comment/1
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIyIiwiYXV0aCI6IlJPTEVfVVNFUiIsImV4cCI6MTY2NjAxMzYwMn0.zskkwx_KqCZftUbGrwHvnycQYwlpd16Yvy_WqeasNun2vD4YpxCA06Y3m1qqcCh0ZOZkKaDcH3BvEiSgPNF_Og
+Content-Type: application/json
+
+{
+  "postId": 1,
+  "comments": "댓글22입니다"
 }
 
 ###일반API요청
@@ -68,5 +88,3 @@ Content-Type: application/json
   "refreshToken": "eyJhbGciOiJIUzUxMiJ9.eyJleHAiOjE2NjYyMTcxMjZ9.5RyEhptEeD-0kJQ7SEDISCgnEPZVJlivVouqM4DQ5YiUXFzDvHu4L8dYSX7UU5C5igwhRasa27ExyoeO-W_pDQ"
 }
 
-###멤버 미
-GET http://localhost:8080/

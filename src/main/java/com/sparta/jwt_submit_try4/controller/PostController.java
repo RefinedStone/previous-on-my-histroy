@@ -6,6 +6,7 @@ import com.sparta.jwt_submit_try4.jwt.entity.Post;
 import com.sparta.jwt_submit_try4.service.PostService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -31,6 +32,7 @@ public class PostController {
     public ResponseEntity<PostResponseDto<?>> updatePost(@RequestBody PostRequestDto requestDto, @PathVariable Long id){
         return ResponseEntity.ok(postService.updatePost(requestDto, id));
     }
+
 
     //글 삭제
     @DeleteMapping("/post/{id}")

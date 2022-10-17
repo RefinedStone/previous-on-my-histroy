@@ -3,6 +3,7 @@ package com.sparta.jwt_submit_try4.controller;
 
 import com.sparta.jwt_submit_try4.controller.dto.CommentRequestDto;
 
+import com.sparta.jwt_submit_try4.controller.dto.CommentResponseDto;
 import com.sparta.jwt_submit_try4.jwt.entity.Comment;
 import com.sparta.jwt_submit_try4.repository.CommentRepository;
 import com.sparta.jwt_submit_try4.service.CommentService;
@@ -16,24 +17,23 @@ public class CommentController {
     private final CommentService commentService;
     private final CommentRepository commentRepository;
 
-    //모든 글 읽어 오기
-//    @GetMapping("/dev/comment")
-//    public List<Comment> getAllpost(){return commentService.getAllpost();}
 
-  //  댓글 쓰기
+    //  댓글 쓰기
+//    @PostMapping("/dev/comment")
+//    public Comment createComment(@RequestBody CommentRequestDto requestDto) {
+//        return commentService.createCommentWithManyToOne(requestDto);
+//    }
+
     @PostMapping("/dev/comment")
-    public Comment createComment(@RequestBody CommentRequestDto requestDto) {
-        return commentService.createCommentWithManyToOne(requestDto);
+    public ResponseEntity<CommentResponseDto<?>> createComment(@RequestBody CommentRequestDto commentRequestDto) {
+        return ResponseEntity.ok(commentService.createCommentWithManyToOne(commentRequestDto));
     }
 
-  /*  @PostMapping("/dev/comment")
-    public ResponseEntity<CommentResponseDto<?>> createComment(@RequestBody CommentRequestDto commentRequestDto) {
-        return ResponseEntity.ok(commentService.createComment(commentRequestDto));
-    }*/
-//댓글 수정
+    //댓글 수정
 //    @PutMapping("/dev/comment/{id}")
-//    public Optional<Comment> updateComment(@RequestBody CommentRequestDto requestDto, @PathVariable Long id){
-//        return commentService.updateComment(requestDto, id);}
+//    public ResponseEntity<CommentResponseDto<?>> updateComment(@RequestBody CommentRequestDto requestDto, @PathVariable Long id) {
+//        return commentService.updateComment(requestDto, id);
+//    }
 //
 //
 //    //댓글 삭제
