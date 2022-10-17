@@ -1,7 +1,7 @@
 package com.sparta.jwt_submit_try4.repository;
 
 
-import com.sparta.jwt_submit_try4.entity.Post;
+import com.sparta.jwt_submit_try4.jwt.entity.Post;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

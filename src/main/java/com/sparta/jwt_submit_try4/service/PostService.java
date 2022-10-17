@@ -1,17 +1,11 @@
 package com.sparta.jwt_submit_try4.service;
 
 
-import com.sparta.jwt_submit_try4.controller.dto.MemberResponseDtoTest;
 import com.sparta.jwt_submit_try4.controller.dto.PostRequestDto;
 import com.sparta.jwt_submit_try4.controller.dto.PostResponseDto;
-import com.sparta.jwt_submit_try4.entity.Member;
-import com.sparta.jwt_submit_try4.entity.Post;
-import com.sparta.jwt_submit_try4.repository.MemberRepository;
+import com.sparta.jwt_submit_try4.jwt.entity.Member;
+import com.sparta.jwt_submit_try4.jwt.entity.Post;
 import com.sparta.jwt_submit_try4.repository.PostRepository;
-import com.sparta.jwt_submit_try4.util.SecurityUtil;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -44,6 +38,7 @@ public class PostService {
         Post post = new Post(requestDto,member);
 //        String s = memberService.getInfo().getNickname();
 //        Post post = new Post(requestDto,s);
+
         postRepository.save(post);
         return PostResponseDto.success(post);
     }

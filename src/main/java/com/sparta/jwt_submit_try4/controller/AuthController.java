@@ -2,8 +2,8 @@ package com.sparta.jwt_submit_try4.controller;
 
 
 import com.sparta.jwt_submit_try4.controller.dto.*;
-import com.sparta.jwt_submit_try4.entity.Member;
-import com.sparta.jwt_submit_try4.entity.RefreshToken;
+import com.sparta.jwt_submit_try4.jwt.entity.Member;
+import com.sparta.jwt_submit_try4.jwt.entity.RefreshToken;
 import com.sparta.jwt_submit_try4.jwt.TokenProvider;
 import com.sparta.jwt_submit_try4.repository.MemberRepository;
 import com.sparta.jwt_submit_try4.repository.RefreshTokenRepository;
@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.Valid;
+import java.util.ArrayList;
 import java.util.Optional;
 
 @RestController
@@ -61,6 +62,9 @@ public class AuthController {
 
     @PostMapping("/reissue")
     public ResponseEntity<TokenDto> reissue(@RequestBody TokenRequestDto tokenRequestDto) {
+        ArrayList<String> tempTest = new ArrayList<>();
+
+
         return ResponseEntity.ok(authService.reissue(tokenRequestDto));
     }
 

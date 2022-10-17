@@ -1,12 +1,14 @@
-package com.sparta.jwt_submit_try4.entity;
+package com.sparta.jwt_submit_try4.jwt.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.sparta.jwt_submit_try4.controller.dto.PostRequestDto;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.List;
 
 @NoArgsConstructor
 @Setter
@@ -27,9 +29,16 @@ public class Post extends Timestamped{
     @Column(nullable = true)
     private String nickname;
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name="member_Id")
     private Member member;
+
+
+    //One post to Many comment
+    @OneToMany(mappedBy = "post_id")
+    private List<Comment> comment;
+
 
 
     public Post(String contents, String title) {
@@ -40,12 +49,12 @@ public class Post extends Timestamped{
         this.contents = requestDto.getContents();
         this.title = requestDto.getTitle();
     }
-
-  public Post(PostRequestDto requestDto,Member member) {
-      this.contents = requestDto.getContents();
-      this.title = requestDto.getTitle();
-      this.nickname = member.getNickname();
-  }
+    public Post(PostRequestDto requestDto,Member member) {
+        this.contents = requestDto.getContents();
+        this.title = requestDto.getTitle();
+        this.member = member;
+        this.nickname = member.getNickname();
+    }
 
 
     public void update(PostRequestDto requestDto) {

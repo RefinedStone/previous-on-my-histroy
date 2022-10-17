@@ -2,14 +2,12 @@ package com.sparta.jwt_submit_try4.service;
 
 
 import com.sparta.jwt_submit_try4.controller.dto.MemberResponseDto;
-import com.sparta.jwt_submit_try4.entity.Member;
+import com.sparta.jwt_submit_try4.jwt.entity.Member;
 import com.sparta.jwt_submit_try4.repository.MemberRepository;
 import com.sparta.jwt_submit_try4.util.SecurityUtil;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
-import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor

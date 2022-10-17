@@ -2,15 +2,12 @@ package com.sparta.jwt_submit_try4.service;
 
 
 import com.sparta.jwt_submit_try4.controller.dto.*;
-import com.sparta.jwt_submit_try4.entity.Member;
-import com.sparta.jwt_submit_try4.entity.RefreshToken;
+import com.sparta.jwt_submit_try4.jwt.entity.Member;
+import com.sparta.jwt_submit_try4.jwt.entity.RefreshToken;
 import com.sparta.jwt_submit_try4.jwt.TokenProvider;
 import com.sparta.jwt_submit_try4.repository.MemberRepository;
 import com.sparta.jwt_submit_try4.repository.RefreshTokenRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.ResponseEntity;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.password.PasswordEncoder;

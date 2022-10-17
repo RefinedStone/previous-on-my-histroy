@@ -2,14 +2,10 @@ package com.sparta.jwt_submit_try4.controller;
 
 
 import com.sparta.jwt_submit_try4.controller.dto.*;
-import com.sparta.jwt_submit_try4.entity.Member;
-import com.sparta.jwt_submit_try4.entity.Post;
-import com.sparta.jwt_submit_try4.repository.MemberRepository;
+import com.sparta.jwt_submit_try4.jwt.entity.Post;
 import com.sparta.jwt_submit_try4.service.PostService;
-import com.sparta.jwt_submit_try4.util.SecurityUtil;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -28,12 +24,10 @@ public class PostController {
     public ResponseEntity<PostResponseDto<?>> signup(@RequestBody PostRequestDto postRequestDto) {
         return ResponseEntity.ok(postService.createPost(postRequestDto));
     }
-
     //글 수정
     @PutMapping("/post/{id}")
     public Optional<Post> updatePost(@RequestBody PostRequestDto requestDto, @PathVariable Long id){
         return postService.updatePost(requestDto, id);}
-
 
     //글 삭제
     @DeleteMapping("/post/{id}")

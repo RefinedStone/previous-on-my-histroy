@@ -1,4 +1,4 @@
-package com.sparta.jwt_submit_try4.entity;
+package com.sparta.jwt_submit_try4.jwt.entity;
 
 import lombok.Getter;
 import org.springframework.data.annotation.CreatedDate;

@@ -1,14 +1,13 @@
 package com.sparta.jwt_submit_try4.controller.dto;
 
 
-import com.sparta.jwt_submit_try4.entity.Authority;
-import com.sparta.jwt_submit_try4.entity.Member;
+import com.sparta.jwt_submit_try4.jwt.entity.Authority;
+import com.sparta.jwt_submit_try4.jwt.entity.Member;
 import lombok.*;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
 @Getter

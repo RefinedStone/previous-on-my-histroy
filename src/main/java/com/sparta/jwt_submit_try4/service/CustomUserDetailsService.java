@@ -1,7 +1,7 @@
 package com.sparta.jwt_submit_try4.service;
 
 
-import com.sparta.jwt_submit_try4.entity.Member;
+import com.sparta.jwt_submit_try4.jwt.entity.Member;
 import com.sparta.jwt_submit_try4.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
