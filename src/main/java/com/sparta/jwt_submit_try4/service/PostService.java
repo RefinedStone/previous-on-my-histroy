@@ -36,11 +36,12 @@ public class PostService {
     //글 쓰기
     public PostResponseDto<?> createPost(PostRequestDto requestDto) {
         Member member = memberService.getInfo();
-        Post post = new Post(requestDto,member);
+        Post post = new Post(requestDto, member);
         postRepository.save(post);
         return PostResponseDto.success(post);
     }
 
+    //글 수정
     @Transactional
     public PostResponseDto<?> updatePost(PostRequestDto requestDto, Long id) {
         Post post = postRepository.findById(id).orElseThrow(
@@ -50,10 +51,10 @@ public class PostService {
         return PostResponseDto.success(postRepository.findById(id));
     }
 
-    public void deletePost(PostRequestDto requestDto, Long id) {
-        postRepository.deleteById(id);
+    //글 삭제
+    public PostResponseDto<String> deletePost(Long id) {
+        return PostResponseDto.success("delete success");
     }
-
 
 }
 

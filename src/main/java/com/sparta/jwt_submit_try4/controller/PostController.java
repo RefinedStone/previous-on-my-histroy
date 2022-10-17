@@ -27,9 +27,6 @@ public class PostController {
         return ResponseEntity.ok(postService.createPost(postRequestDto));
     }
     //글 수정
-//    @PutMapping("/post/{id}")
-//    public Optional<Post> updatePost(@RequestBody PostRequestDto requestDto, @PathVariable Long id){
-//        return postService.updatePost(requestDto, id);}
     @PutMapping("/post/{id}")
     public ResponseEntity<PostResponseDto<?>> updatePost(@RequestBody PostRequestDto requestDto, @PathVariable Long id){
         return ResponseEntity.ok(postService.updatePost(requestDto, id));
@@ -37,8 +34,8 @@ public class PostController {
 
     //글 삭제
     @DeleteMapping("/post/{id}")
-    public void deletePost(@RequestBody PostRequestDto requestDto, @PathVariable Long id) {
-        postService.deletePost(requestDto,id);
+    public ResponseEntity<PostResponseDto<String>> deletePost(@PathVariable Long id) {
+        return ResponseEntity.ok(postService.deletePost(id));
     }
 
 }
