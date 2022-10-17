@@ -1,25 +1,22 @@
 package com.sparta.jwt_submit_try4.service;
 
 import com.sparta.jwt_submit_try4.controller.dto.CommentRequestDto;
+
 import com.sparta.jwt_submit_try4.jwt.entity.Comment;
-import com.sparta.jwt_submit_try4.jwt.entity.Post;
+import com.sparta.jwt_submit_try4.repository.CommentRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+@RequiredArgsConstructor
 @Service
 public class CommentService {
-//    public List<Comment> getAllcomment() {
-//    }
 
-    public Comment createComment(CommentRequestDto requestDto,Long id) {
+    private final CommentRepository commentRepository;
 
-        Comment comment = new Comment(requestDto,id);
-        return comment;
-
+    public Comment createComment(CommentRequestDto requestDto) {
+        Comment comment = new Comment(requestDto);
+        return commentRepository.save(comment);
     }
-
-//    public Optional<Post> updateComment(CommentRequestDto requestDto, Long id) {
-//    }
-
-//    public void deleteComment(CommentRequestDto requestDto, Long id) {
-//    }
 }
+
+

@@ -10,6 +10,7 @@ import lombok.Setter;
 import javax.persistence.*;
 import java.util.List;
 
+
 @NoArgsConstructor
 @Setter
 @Getter
@@ -34,12 +35,9 @@ public class Post extends Timestamped{
     @JoinColumn(name="member_Id")
     private Member member;
 
-
     //One post to Many comment
-    @OneToMany(mappedBy = "post_id")
+    @OneToMany(mappedBy = "post")
     private List<Comment> comment;
-
-
 
     public Post(String contents, String title) {
         this.contents = contents;

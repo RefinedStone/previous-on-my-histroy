@@ -36,9 +36,6 @@ public class PostService {
     public PostResponseDto<?> createPost(PostRequestDto requestDto) {
         Member member = memberService.getInfo();
         Post post = new Post(requestDto,member);
-//        String s = memberService.getInfo().getNickname();
-//        Post post = new Post(requestDto,s);
-
         postRepository.save(post);
         return PostResponseDto.success(post);
     }

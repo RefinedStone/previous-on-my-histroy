@@ -14,9 +14,8 @@ import javax.persistence.*;
 @Getter
 @Entity
 public class Comment extends Timestamped{
-
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(nullable = true)
@@ -25,31 +24,25 @@ public class Comment extends Timestamped{
     // many comment to one post
     @JsonIgnore
     @ManyToOne
-    @JoinColumn(name="post")
+    @JoinColumn(name="post_id")
     private Post post;
-
     @Column(nullable = true)
-    private Long post_id;
+    private Long testId;
 
-    public Comment(String contents) {
-        this.comments = contents;
-    }
     public Comment(CommentRequestDto requestDto) {
         this.comments = requestDto.getComments();
+        this.testId = requestDto.getTestId();
     }
 
     //comment-post를 받는 생성자 추가
-    public Comment(CommentRequestDto requestDto, Post post) {
-        this.comments = requestDto.getComments();
-        this.post = post;
-    }
-    public Comment(CommentRequestDto requestDto, Long post_id) {
-        this.comments = requestDto.getComments();
-        this.post_id = post_id;
-    }
+//    public Comment(CommentRequestDto requestDto, Post post) {
+//        this.comments = requestDto.getComments();
+//        this.post = post;
+//    }
 
     public void update(CommentRequestDto requestDto) {
         this.comments = requestDto.getComments();
+        this.testId = requestDto.getTestId();
     }
 
 
